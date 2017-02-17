@@ -1,16 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:song="http://schemas.android.com/apk/res-auto">
-
-    <com.customview.CustomTitleView
-        android:layout_marginTop="20dp"
-        android:layout_marginLeft="20dp"
+    <TextView
+        android:id="@+id/tv_one"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:padding="10dp"
-        song:titleText="1234"
+        android:text="abcdefg"
+        android:textColor="@android:color/holo_red_dark"
+        android:background="@android:color/holo_orange_light"
+        android:textSize="40sp"/>
+
+    <com.customview.CustomTitleView
+        android:layout_toRightOf="@id/tv_one"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        song:titleText="abcdefg"
         song:titleTextColor="@android:color/holo_red_dark"
         song:titleTextSize="40sp"/>
-</LinearLayout>
+    <com.customview.CustomTitleView
+        android:layout_below="@id/tv_one"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        song:titleText="abcdefg"
+        song:titleTextColor="@android:color/holo_red_dark"
+        song:titleTextSize="40sp"/>
+</RelativeLayout>

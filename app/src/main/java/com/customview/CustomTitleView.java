@@ -27,6 +27,9 @@ import java.util.Set;
  * http://blog.csdn.net/lmj623565791/article/details/24252901/
  * 噪点实现参考这位同学的博客：
  * http://blog.csdn.net/qq_24304811/article/details/51308663
+ *
+ * 实现文本居中：
+ * http://blog.csdn.net/u014702653/article/details/51985821
  */
 
 public class CustomTitleView extends View {
@@ -123,6 +126,8 @@ public class CustomTitleView extends View {
          * 获取文本的宽和高
          */
         mPaint = new Paint();
+        mPaint.setAntiAlias(true);
+        mPaint.setStyle(Paint.Style.FILL);
         mPaint.setTextSize(titleTextSize);
 //        mPaint.setColor(titleTextColor);
 
@@ -186,7 +191,11 @@ public class CustomTitleView extends View {
         }else {
             mPaint.setTextSize(titleTextSize);
             mPaint.getTextBounds(titleText,0,titleText.length(),mBound);
-            float textWidth = mBound.width();
+//            float textWidth = mBound.width();
+            /**
+             * 精确的测量文本的宽度
+             */
+            float textWidth =  mPaint.measureText(titleText);
             int desired = (int) (getPaddingLeft() + textWidth + getPaddingRight());
             width = desired;
         }
@@ -197,7 +206,13 @@ public class CustomTitleView extends View {
         }else {
             mPaint.setTextSize(titleTextSize);
             mPaint.getTextBounds(titleText,0,titleText.length(),mBound);
-            float textHeight = mBound.height();
+//            float textHeight = mBound.height();
+            /**
+             * 精确的测量文本的高度
+             */
+            Paint.FontMetrics fontMetrics = mPaint.getFontMetrics();
+            float textHeight = Math.abs((fontMetrics.bottom - fontMetrics.top));
+//            float textHeight =fontMetrics.bottom - fontMetrics.top;
             int desired = (int) (getPaddingTop()+textHeight+getPaddingBottom());
             height = desired;
         }
@@ -214,12 +229,35 @@ public class CustomTitleView extends View {
         canvas.drawRect(0,0,getMeasuredWidth(),getMeasuredHeight(),mPaint);
 
         mPaint.setColor(titleTextColor);
-        canvas.drawText(titleText,getWidth()/2 - mBound.width()/2,getHeight()/2 + mBound.height()/2,mPaint);
+        Paint.FontMetricsInt fm = mPaint.getFontMetricsInt();
+        //No.1鸿洋大神博客中的方法，不是很居中
+//        canvas.drawText(titleText,getWidth()/2 - mBound.width()/2,getHeight()/2 + mBound.height()/2,mPaint);
+        /**
+         * No.2 有位博主的解决方案
+         * 博客地址：http://blog.csdn.net/u014702653/article/details/51985821
+         * getHeight()控件的高度
+         * getHeight()/2 - fm.descent:将整个文字区域抬高至控件的1/2
+         * +(fm.bottom - fm.top)/2:(fm.bottom - fm.top)其实是文本的高度，意思是将文本下沉文本高度的一半
+         *
+         * getWidth(): View在設定好佈局後整個View的寬度。
+         * getMeasuredWidth(): 對View上的內容進行測量後得到的View內容占据的寬度
+         * 参考：http://blog.sina.com.cn/s/blog_6e519585010152s5.html
+         */
+        //英文的话使用这种效果更好，偏上
+        canvas.drawText(titleText,getWidth()/2 - getMeasuredWidth()/2,getHeight()/2 - fm.descent + (fm.descent - fm.ascent)/ 2,mPaint);
+        //数字和中文使用这种效果更好，偏下
+//        canvas.drawText(titleText,getWidth()/2 - getMeasuredWidth()/2,getHeight()/2 - fm.descent + (fm.bottom - fm.top)/ 2,mPaint);
 
+        mPaint.setColor(Color.GREEN);
+        mPaint.setStrokeWidth(5);
+        // 中线,做对比
+        canvas.drawLine(0, getHeight() / 2, getWidth(), getHeight() / 2, mPaint);
 
         /**
          * 添加噪点
          */
+        mPaint.setColor(Color.BLACK);
+        mPaint.setStrokeWidth(1);
         drawCircle(canvas);
         long time = System.currentTimeMillis();
         drawLine(canvas);
