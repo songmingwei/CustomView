@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:song="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/activity_two"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.customview.TwoActivity">
+
+
+    <com.customview.view.CustomImageView
+        android:id="@+id/civ_id"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        song:titleText="中中中"
+        song:titleTextColor="@color/colorAccent"
+        song:titleTextSize="40sp"
+        song:image="@mipmap/test"
+        song:imageScaleType="center" />
+
+    <View android:layout_gravity="center"
+        android:layout_width="1dp"
+        android:layout_height="50dp"
+        android:background="@color/colorAccent"/>
+
+
+</LinearLayout>

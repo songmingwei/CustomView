@@ -1,4 +1,4 @@
-package com.customview;
+package com.customview.view;
 
 import android.content.Context;
 import android.content.res.TypedArray;
@@ -10,6 +10,9 @@ import android.util.AttributeSet;
 import android.util.Log;
 import android.util.TypedValue;
 import android.view.View;
+
+import com.customview.R;
+
 import java.util.HashSet;
 import java.util.Random;
 import java.util.Set;
@@ -100,7 +103,7 @@ public class CustomTitleView extends View {
         });
 
         //以下两种方式获取属性是一样的;
-        TypedArray typedArray = context.obtainStyledAttributes(attrs,R.styleable.CustomTitleView,defStyleAttr,0);
+        TypedArray typedArray = context.obtainStyledAttributes(attrs, R.styleable.CustomTitleView,defStyleAttr,0);
 //        TypedArray typedArray = context.getTheme().obtainStyledAttributes(attrs,R.styleable.CustomTitleView,defStyleAttr,0);
         int count = typedArray.getIndexCount();
         for (int i = 0; i < count; i++) {

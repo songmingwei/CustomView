@@ -6,12 +6,13 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ListView;
 
 public class MainActivity extends AppCompatActivity {
 
     String[] arrays = {"可点击的文本，类似于验证码",
-            };
+            "图片加文字，可点击",};
 
     private Intent intent;
 
@@ -33,7 +34,7 @@ public class MainActivity extends AppCompatActivity {
                         startActivity(intent);
                         break;
                     case 1:
-                        intent = new Intent(MainActivity.this,OneActivity.class);
+                        intent = new Intent(MainActivity.this,TwoActivity.class);
                         startActivity(intent);
                         break;
                 }

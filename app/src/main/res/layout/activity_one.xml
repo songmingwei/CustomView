@@ -12,14 +12,14 @@
         android:background="@android:color/holo_orange_light"
         android:textSize="40sp"/>
 
-    <com.customview.CustomTitleView
+    <com.customview.view.CustomTitleView
         android:layout_toRightOf="@id/tv_one"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         song:titleText="abcdefg"
         song:titleTextColor="@android:color/holo_red_dark"
         song:titleTextSize="40sp"/>
-    <com.customview.CustomTitleView
+    <com.customview.view.CustomTitleView
         android:layout_below="@id/tv_one"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
