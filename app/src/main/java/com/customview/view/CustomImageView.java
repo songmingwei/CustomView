@@ -19,6 +19,8 @@ import com.customview.R;
 
 /**
  * Created by terrysong on 2017/2/17.
+ * 参考鸿洋大神博客
+ * http://blog.csdn.net/lmj623565791/article/details/24300125
  */
 
 public class CustomImageView extends View{
