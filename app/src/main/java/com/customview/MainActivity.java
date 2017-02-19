@@ -15,8 +15,6 @@ public class MainActivity extends AppCompatActivity {
             "图片加文字，可点击",
             "圆形进度条"};
 
-    private Intent intent;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -27,6 +25,7 @@ public class MainActivity extends AppCompatActivity {
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Intent intent = null;
                 switch (position){
                     case 0:
                         intent = new Intent(MainActivity.this,OneActivity.class);
@@ -38,6 +37,7 @@ public class MainActivity extends AppCompatActivity {
                         intent = new Intent(MainActivity.this,ThreeActivity.class);
                         break;
                 }
+                intent.putExtra("title",arrays[position]);
                 startActivity(intent);
             }
         });

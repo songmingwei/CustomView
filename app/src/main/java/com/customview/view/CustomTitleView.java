@@ -247,7 +247,8 @@ public class CustomTitleView extends View {
          * 参考：http://blog.sina.com.cn/s/blog_6e519585010152s5.html
          */
         //英文的话使用这种效果更好，偏上
-        canvas.drawText(titleText,getWidth()/2 - getMeasuredWidth()/2,getHeight()/2 - fm.descent + (fm.descent - fm.ascent)/ 2,mPaint);
+        float textWidth = mPaint.measureText(titleText);
+        canvas.drawText(titleText,getWidth()/2 - textWidth/2,getHeight()/2 - fm.descent + (fm.descent - fm.ascent)/ 2,mPaint);
         //数字和中文使用这种效果更好，偏下
 //        canvas.drawText(titleText,getWidth()/2 - getMeasuredWidth()/2,getHeight()/2 - fm.descent + (fm.bottom - fm.top)/ 2,mPaint);
 
@@ -255,6 +256,7 @@ public class CustomTitleView extends View {
         mPaint.setStrokeWidth(5);
         // 中线,做对比
         canvas.drawLine(0, getHeight() / 2, getWidth(), getHeight() / 2, mPaint);
+        canvas.drawLine(getWidth()/2, 0, getWidth()/2, getHeight(), mPaint);
 
         /**
          * 添加噪点

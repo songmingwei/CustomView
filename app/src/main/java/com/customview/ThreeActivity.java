@@ -1,5 +1,6 @@
 package com.customview;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -17,6 +18,12 @@ public class ThreeActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_three);
+
+        Intent intent = getIntent();
+        if(intent==null)
+            return;
+        String title = intent.getStringExtra("title");
+        getSupportActionBar().setTitle(title);
 
         customProgressBar = (CustomProgressBar) findViewById(R.id.cpb_id);
         progressBar = (ProgressBar) findViewById(R.id.pb_id);

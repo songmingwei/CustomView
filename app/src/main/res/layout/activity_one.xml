@@ -16,7 +16,7 @@
         android:layout_toRightOf="@id/tv_one"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        song:titleText="abcdefg"
+        song:titleText="8888"
         song:titleTextColor="@android:color/holo_red_dark"
         song:titleTextSize="40sp"/>
     <com.customview.view.CustomTitleView

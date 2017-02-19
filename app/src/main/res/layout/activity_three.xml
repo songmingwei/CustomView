@@ -25,7 +25,7 @@
         android:id="@+id/pb_id"
         android:layout_width="match_parent"
         android:layout_height="10dp"
-        android:max="360"
+        android:max="100"
         style="@android:style/Widget.ProgressBar.Horizontal"
         android:visibility="visible" />
 </LinearLayout>
