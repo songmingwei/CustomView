@@ -1,10 +1,12 @@
-package com.customview;
+package com.customview.activity;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
+
+import com.customview.R;
 
 public class TwoActivity extends AppCompatActivity {
 

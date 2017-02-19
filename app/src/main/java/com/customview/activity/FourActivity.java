@@ -1,24 +1,22 @@
-package com.customview;
+package com.customview.activity;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
-/**
- *
- */
-public class OneActivity extends AppCompatActivity {
+import com.customview.R;
+
+public class FourActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_one);
+        setContentView(R.layout.activity_four);
 
         Intent intent = getIntent();
         if(intent==null)
             return;
         String title = intent.getStringExtra("title");
         getSupportActionBar().setTitle(title);
-
     }
 }

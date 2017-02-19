@@ -6,14 +6,19 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
 import android.widget.ListView;
+
+import com.customview.activity.FourActivity;
+import com.customview.activity.OneActivity;
+import com.customview.activity.ThreeActivity;
+import com.customview.activity.TwoActivity;
 
 public class MainActivity extends AppCompatActivity {
 
     String[] arrays = {"可点击的文本，类似于验证码",
             "图片加文字，可点击",
-            "圆形进度条"};
+            "圆形进度条",
+            "音量控制"};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,6 +40,9 @@ public class MainActivity extends AppCompatActivity {
                         break;
                     case 2:
                         intent = new Intent(MainActivity.this,ThreeActivity.class);
+                        break;
+                    case 3:
+                        intent = new Intent(MainActivity.this,FourActivity.class);
                         break;
                 }
                 intent.putExtra("title",arrays[position]);

@@ -93,8 +93,10 @@ public class CustomProgressBar extends View {
                     secondColor = a.getColor(attr,Color.GREEN);
                     break;
                 case R.styleable.CustomProgressBar_circleWidth:
+                    //以下两种方式，在此并没有什么区别
                     circleWidth = a.getDimensionPixelSize(attr, (int) TypedValue.applyDimension(
-                            TypedValue.COMPLEX_UNIT_PX,20,getResources().getDisplayMetrics()));
+                            TypedValue.COMPLEX_UNIT_PX,10,getResources().getDisplayMetrics()));
+//                    circleWidth = a.getDimensionPixelSize(attr, 0);
                     break;
                 case R.styleable.CustomProgressBar_progressTextSize:
                     progressTextSize = a.getDimensionPixelSize(attr, (int) TypedValue.applyDimension(

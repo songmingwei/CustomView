@@ -17,6 +17,19 @@
     <attr name="maxProgress" format="integer"/>
     <attr name="progressTextSize" format="dimension"/>
 
+    <attr name="dotCount" format="integer"/>
+    <attr name="splitSize" format="integer"/>
+    <attr name="background" format="reference"/>
+    
+    <declare-styleable name="CustomVolumeControlBar">
+        <attr name="firstColor"/>
+        <attr name="secondColor"/>
+        <attr name="circleWidth"/>
+        <attr name="dotCount"/>
+        <attr name="splitSize"/>
+        <attr name="background"/>
+    </declare-styleable>
+
     <declare-styleable name="CustomProgressBar">
         <attr name="firstColor"/>
         <attr name="secondColor"/>

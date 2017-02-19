@@ -1,4 +1,4 @@
-package com.customview;
+package com.customview.activity;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.widget.ProgressBar;
 
+import com.customview.R;
 import com.customview.view.CustomProgressBar;
 
 public class ThreeActivity extends AppCompatActivity {
