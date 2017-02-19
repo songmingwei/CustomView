@@ -137,6 +137,7 @@ public class CustomProgressBar extends View {
 
     @Override
     protected void onDraw(Canvas canvas) {
+        super.onDraw(canvas);
         mPaint.setColor(Color.CYAN);
         mPaint.setStrokeWidth(10);
         mPaint.setStyle(Paint.Style.STROKE);
@@ -145,7 +146,8 @@ public class CustomProgressBar extends View {
 
         int cx = getWidth()/2;//圆心x坐标
         int cy = getHeight()/2;//圆心y坐标
-        int cr = getWidth()/2 - circleWidth/2;//圆半径
+        //减去getPaddingLeft()的值
+        int cr = getWidth()/2 - circleWidth/2-getPaddingLeft();//圆半径
 
         RectF rectF = new RectF(cx-cr,cy-cr,cx+cr,cy+cr);
         if(!isNext){
@@ -175,6 +177,7 @@ public class CustomProgressBar extends View {
          */
         Paint.FontMetrics fm = mPaint.getFontMetrics();
         canvas.drawText(progressText,cx-textWidth/2,cx-fm.descent+(fm.descent-fm.ascent)/2,mPaint);
+
     }
 
     private String getProgressText(int progress){

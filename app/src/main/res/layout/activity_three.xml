@@ -13,6 +13,7 @@
         android:id="@+id/cpb_id"
         android:layout_width="100dp"
         android:layout_height="100dp"
+        android:padding="8dp"
         song:firstColor="@color/colorAccent"
         song:secondColor="@color/colorPrimary"
         song:maxProgress="100"
